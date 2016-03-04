@@ -28,10 +28,3 @@ This is the background image source used when page is viewed at mobile resolutio
 
 To Be Completed
 
-##Browser spec
-
-Tested on: -
-Chrome 34.0.1847.137, 
-Safari 6.1.3 (7537.75.14)
-Firefox 28.0
-Internet Explorer 8

@@ -16,6 +16,7 @@ define([
 		_activeId: null,
 
 		initialize: function() {
+
 			this._blockModels = this.model.findDescendants('blocks').filter(function(model) {
 				return model.get("_backgroundSwitcher");
 			});
@@ -28,6 +29,7 @@ define([
 			this.listenTo(Adapt, "pageView:ready", this.onPageReady);
 			this.listenTo(Adapt, "remove", this.onRemove);
 			this.setupBackgroundContainer();
+			
 		},
 
 		onPageReady: function() {
