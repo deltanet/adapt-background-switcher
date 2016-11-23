@@ -19,12 +19,13 @@
           "properties":{
             "_backgroundSwitcher": {
               "type":"object",
-              "required":true,
-              "legend": "BackgroundSwitcher",
+              "required":false,
+              "legend": "Background Switcher",
               "properties":{
                 "_isActive": {
                   "type":"boolean",
                   "required":true,
+                  "default": false,
                   "title": "Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
@@ -42,7 +43,7 @@
           "properties":{
             "_backgroundSwitcher": {
               "type":"object",
-              "required":true,
+              "required":false,
               "legend": "Background Switcher",
               "properties":{
                 "mobileSrc": {
@@ -51,7 +52,7 @@
                   "title": "Background switcher image (Mobile)",
                   "default": "",
                   "inputType": "Asset:image",
-                  "validators": ["required"],
+                  "validators": [],
                   "help": "The background image you want shown for this block when the course is viewed at mobile resolution"
                 },
                 "src": {
@@ -60,7 +61,7 @@
                   "title": "Background switcher image (Desktop)",
                   "default": "",
                   "inputType": "Asset:image",
-                  "validators": ["required"],
+                  "validators": [],
                   "help": "The background image you want shown for this block when the course is viewed at desktop resolution"
                 }
               }
