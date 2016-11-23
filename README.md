@@ -27,4 +27,3 @@ This is the background image source used when page is viewed at mobile resolutio
 ##Limitations
 
 To Be Completed
-
