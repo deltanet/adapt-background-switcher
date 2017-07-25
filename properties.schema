@@ -6,7 +6,7 @@
   "properties":{
     "pluginLocations": {
       "type":"object",
-      "required":true,
+      "required": true,
       "properties":{
         "config": {
           "type":"object"
@@ -19,17 +19,17 @@
           "properties":{
             "_backgroundSwitcher": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Background Switcher",
               "properties":{
                 "_isActive": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
-                  "title": "Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Set to true to enable the background switcher, false to disable it."
+                  "help": "Controls whether the Background Switcher extension is enabled or disabled."
                 }
               }
             }
@@ -43,26 +43,26 @@
           "properties":{
             "_backgroundSwitcher": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Background Switcher",
               "properties":{
                 "mobileSrc": {
                   "type":"string",
-                  "required":true,
+                  "required": true,
                   "title": "Background switcher image (Mobile)",
                   "default": "",
                   "inputType": "Asset:image",
                   "validators": [],
-                  "help": "The background image you want shown for this block when the course is viewed at mobile resolution"
+                  "help": "The background image you want shown for this block when the course is viewed at mobile resolution."
                 },
                 "src": {
                   "type":"string",
-                  "required":true,
+                  "required": true,
                   "title": "Background switcher image (Desktop)",
                   "default": "",
                   "inputType": "Asset:image",
                   "validators": [],
-                  "help": "The background image you want shown for this block when the course is viewed at desktop resolution"
+                  "help": "The background image you want shown for this block when the course is viewed at desktop resolution."
                 }
               }
             }
