@@ -2,7 +2,7 @@
     "name": "adapt-background-switcher",
     "repository": "git://github.com/deltanet/adapt-background-switcher",
     "framework": "^2.0.0",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "homepage": "https://github.com/deltanet/adapt-background-switcher",
     "issues": "https://github.com/deltanet/adapt-background-switcher/issues/",
     "displayName": "Background Switcher",
