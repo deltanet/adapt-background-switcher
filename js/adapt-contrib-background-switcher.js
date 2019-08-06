@@ -1,7 +1,5 @@
-
-
 define([
-	'coreJS/adapt'
+	'core/js/adapt'
 ], function(Adapt) {
 
 	var BackgroundSwitcherView = Backbone.View.extend({
@@ -16,6 +14,7 @@ define([
 		_activeId: null,
 
 		initialize: function() {
+			this.disableSmoothScrolling();
 
 			this._blockModels = this.model.findDescendants('blocks').filter(function(model) {
 				return model.get("_backgroundSwitcher");
@@ -29,7 +28,6 @@ define([
 			this.listenTo(Adapt, "pageView:ready", this.onPageReady);
 			this.listenTo(Adapt, "remove", this.onRemove);
 			this.setupBackgroundContainer();
-			
 		},
 
 		onPageReady: function() {
@@ -39,7 +37,7 @@ define([
 			this.callbacks = {};
 
 			for (var i = 0, l = this._blockModels.length; i < l; i++) {
-				var blockModel = this._blockModels[i];				
+				var blockModel = this._blockModels[i];
 				if(!blockModel.get('_backgroundSwitcher')) continue;
 
 				var id = blockModel.get("_id");
@@ -66,22 +64,31 @@ define([
 			}
 
 			this._activeId = this._firstId;
-			
-			this.showBackground();
 
+			this.showBackground();
 		},
 
 		setupBackgroundContainer : function() {
-
 			this.$backgroundContainer = $('<div class="background-switcher-container"></div>');
 			this.$el.addClass('background-switcher-active');
 			this.$el.prepend(this.$backgroundContainer);
-
 		},
-		
+
+		// Turn off smooth scrolling in IE and Edge to stop the background from flickering on scroll
+		disableSmoothScrolling: function() {
+			var browser = Adapt.device.browser;
+
+			if (browser !== "internet explorer" && browser !== "microsoft edge") return;
+
+			$("body").on("wheel", function(event) {
+				event.preventDefault();
+
+				window.scrollTo(0, window.pageYOffset + event.originalEvent.deltaY);
+			});
+		},
 
 		onBlockInview: function(event, measurements) {
-			var isOnscreen = measurements.percentFromTop < 80 && measurements.percentFromBottom < 80 ;
+			var isOnscreen = measurements.percentFromTop < 80 && measurements.percentFromBottom < 80;
 			if (!isOnscreen) return;
 
 			var $target = $(event.target);
@@ -102,7 +109,7 @@ define([
 				this.$backgrounds[this._activeId].addClass('active');
 			}
 			else {
-				this.$('background-switcher-background.active').animate({opacity:0}, 1000, function(){ $(this).removeClass('active'); });
+				this.$('.background-switcher-background.active').animate({opacity:0}, 1000, function(){ $(this).removeClass('active'); });
 				this.$backgrounds[this._activeId].animate({opacity:1}, 1000, function(){ $(this).addClass('active'); });
 			}
 		},
@@ -120,8 +127,6 @@ define([
 
 			this.remove();
 		}
-
-
 	});
 
 	Adapt.on("pageView:postRender", function(view) {
