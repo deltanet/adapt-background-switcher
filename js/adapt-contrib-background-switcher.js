@@ -88,11 +88,16 @@ define([
 		},
 
 		onBlockInview: function(event, measurements) {
-			var isOnscreen = measurements.percentFromTop < 80 && measurements.percentFromBottom < 80;
-			if (!isOnscreen) return;
-
 			var $target = $(event.target);
 			var id = $target.attr("data-backgroundswitcher");
+
+			if (this.$blockElements[id].hasClass('visibility-hidden')) return;
+
+			var isOnscreenY = measurements.percentFromTop < 80 && measurements.percentFromTop > 0;
+			var isOnscreenX = measurements.percentInviewHorizontal == 100;
+			var isOnscreen = measurements.onscreen;
+
+			if (!isOnscreenY || !isOnscreenX || !isOnscreen) return;
 
 			if (this._activeId === id) return;
 
@@ -104,14 +109,8 @@ define([
 		showBackground: function() {
 			var blockModel = this._blockModelsIndexed[this._activeId];
 
-			if(Modernizr.csstransitions){
-				this.$('.background-switcher-background.active').removeClass('active');
-				this.$backgrounds[this._activeId].addClass('active');
-			}
-			else {
-				this.$('.background-switcher-background.active').animate({opacity:0}, 1000, function(){ $(this).removeClass('active'); });
-				this.$backgrounds[this._activeId].animate({opacity:1}, 1000, function(){ $(this).addClass('active'); });
-			}
+			this.$('.background-switcher-background.active').animate({opacity:0}, 1000, function(){ $(this).removeClass('active'); });
+			this.$backgrounds[this._activeId].animate({opacity:1}, 1000, function(){ $(this).addClass('active'); });
 		},
 
 		onRemove: function () {

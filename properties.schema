@@ -1,29 +1,29 @@
 {
-  "type":"object",
+  "type": "object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
-  "required":false,
-  "properties":{
+  "required": false,
+  "properties": {
     "pluginLocations": {
-      "type":"object",
+      "type": "object",
       "required": true,
-      "properties":{
+      "properties": {
         "config": {
-          "type":"object"
+          "type": "object"
         },
         "course": {
-          "type":"object"
+          "type": "object"
         },
         "contentobject": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_backgroundSwitcher": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Background Switcher",
-              "properties":{
+              "properties": {
                 "_isActive": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
                   "default": false,
                   "title": "Is Enabled",
@@ -36,40 +36,40 @@
           }
         },
         "article": {
-          "type":"object"
+          "type": "object"
         },
         "block": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_backgroundSwitcher": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Background Switcher",
-              "properties":{
-                "mobileSrc": {
-                  "type":"string",
-                  "required": true,
-                  "title": "Background switcher image (Mobile)",
-                  "default": "",
-                  "inputType": "Asset:image",
-                  "validators": [],
-                  "help": "The background image you want shown for this block when the course is viewed at mobile resolution."
-                },
+              "properties": {
                 "src": {
-                  "type":"string",
+                  "type": "string",
                   "required": true,
-                  "title": "Background switcher image (Desktop)",
+                  "title": "Desktop Image",
                   "default": "",
                   "inputType": "Asset:image",
                   "validators": [],
                   "help": "The background image you want shown for this block when the course is viewed at desktop resolution."
+                },
+                "mobileSrc": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Mobile Image",
+                  "default": "",
+                  "inputType": "Asset:image",
+                  "validators": [],
+                  "help": "The background image you want shown for this block when the course is viewed on a mobile device."
                 }
               }
             }
           }
         },
         "component": {
-          "type":"object"
+          "type": "object"
         }
       }
     }

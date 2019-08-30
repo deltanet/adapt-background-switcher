@@ -1,36 +1,45 @@
-adapt-background-switcher
-===============
+# adapt-background-switcher  
 
-An Adapt extension to switch between block backgrounds as the users scrolls the page
+**Background switcher** is an *extension* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).  
 
-Usage
- ------
+This extension displays block backgrounds as the users scrolls the page.  
 
-## Settings overview
+## Installation
 
-Extends block data/model
+**Background switcher** must be manually installed in the adapt framework and authoring tool.
 
-#### _backgroundSwitcher
+If **Background switcher** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/deltanet/adapt_authoring/wiki/Plugin-Manager).  
 
-Background Switcher block options object
+## Settings Overview
 
+**Background switcher** is configured on two levels: page (*contentObjects.json*), and block (*blocks.json*).
 
-#### _backgroundSwitcher.src
+The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-background-switcher/blob/master/example.json).  
 
-This is the background image source used when page is viewed at desktop resolution
+### Attributes
 
+**Course**
 
-#### _backgroundSwitcher.mobileSrc
+The Background switcher attribute group at page level contains values for **_isActive**.
 
-This is the background image source used when page is viewed at mobile resolution
+>**_isActive** (boolean):  Turns on and off the **Background switcher** extension. Can be set to disable **Background switcher** when not required.  
+
+**Block**
+
+The Background switcher attribute group at block level contains values for **src**, and **mobileSrc**.  
+
+>**src** (string): File name (including path) of the image used when page is viewed at desktop resolution. Path should be relative to the *src* folder.  
+
+>**mobileSrc** (string): File name (including path) of the image used when page is viewed on a mobile device. Path should be relative to the *src* folder.  
 
 ## Limitations
 
-To Be Completed
+No known limitations.  
 
-## Browser spec
-
-Tested on: -
-Chrome 34.0.1847.137,
-Safari 6.1.3 (7537.75.14)
-Firefox 28.0
+----------------------------
+**Version number:**  3.0.0  
+**Framework versions:** 4+  
+**Author / maintainer:** Deltanet forked from [Adapt Core](https://github.com/cgkineo/adapt-background-switcher)    
+**Accessibility support:** WAI AA   
+**RTL support:** yes  
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (latest version), Edge, IE11, IE Mobile 11, Safari 11+12 for macOS+iOS  
