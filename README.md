@@ -37,9 +37,9 @@ The Background switcher attribute group at block level contains values for **src
 No known limitations.  
 
 ----------------------------
-**Version number:**  3.0.0  
-**Framework versions:** 4+  
+**Version number:**  4.0.0  
+**Framework versions:** 5+  
 **Author / maintainer:** Deltanet forked from [Adapt Core](https://github.com/cgkineo/adapt-background-switcher)    
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (latest version), Edge, IE11, IE Mobile 11, Safari 11+12 for macOS+iOS  
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (latest version), Edge, IE11, IE Mobile 11, Safari 12+13 for macOS/iOS/iPadOS  
