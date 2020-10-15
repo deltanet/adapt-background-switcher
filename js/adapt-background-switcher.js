@@ -52,7 +52,6 @@ define([
         this.$backgroundContainer.prepend($backGround);
         this.$backgrounds[id] = $backGround;
 
-        // $blockElement.find('.block__inner').addClass('background-switcher-block-mobile').css({'background-image': 'url('+ options.mobileSrc +')'});
         this.$blockElements[id] = $blockElement;
       }.bind(this));
 

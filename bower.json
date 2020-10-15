@@ -8,7 +8,7 @@
     "displayName": "Background Switcher",
     "extension": "background-switcher",
     "description": "Switches background image as you move through blocks",
-    "main": "/js/adapt-contrib-background-switcher.js",
+    "main": "/js/adapt-background-switcher.js",
     "keywords": [
         "adapt-plugin",
         "adapt-extension"

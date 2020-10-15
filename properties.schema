@@ -22,7 +22,7 @@
               "required": false,
               "legend": "Background Switcher",
               "properties": {
-                "_isEnabled": {
+                "_isActive": {
                   "type": "boolean",
                   "required": false,
                   "default": false,
@@ -54,15 +54,6 @@
                   "inputType": "Asset:image",
                   "validators": [],
                   "help": "The background image you want shown for this block when the course is viewed at desktop resolution."
-                },
-                "mobileSrc": {
-                  "type": "string",
-                  "required": true,
-                  "title": "Mobile Image",
-                  "default": "",
-                  "inputType": "Asset:image",
-                  "validators": [],
-                  "help": "The background image you want shown for this block when the course is viewed on a mobile device."
                 }
               }
             }

@@ -13,7 +13,7 @@
         "linkText": "View",
         "duration": "2 mins",
         "_backgroundSwitcher": {
-            "_isEnabled": true
+            "_isActive": true
         }
     }
 
