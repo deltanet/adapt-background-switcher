@@ -14,8 +14,6 @@ define([
     initialize: function() {
       _.bindAll(this, 'onBlockInview');
 
-      this.disableSmoothScrolling();
-
       this._blockModels = _.filter(this.model.findDescendantModels('blocks'), function(model) {
         return model.get('_backgroundSwitcher');
       });
@@ -29,6 +27,7 @@ define([
         'pageView:ready': this.onPageReady,
         remove: this.onRemove
       });
+
       this.setupBackgroundContainer();
     },
 
@@ -46,6 +45,9 @@ define([
         $blockElement.attr('data-backgroundswitcher', id).addClass('has-background-switcher-image');
         $blockElement.on('onscreen.background-switcher', this.onBlockInview);
 
+        var parentId = blockModel.get('_parentId');
+        $('.'+parentId).addClass('background-switcher-active');
+
         var options = blockModel.get('_backgroundSwitcher');
 
         var $backGround = $('<div class="background-switcher__item" style="background-image: url('+ options.src +');"></div>');
@@ -60,24 +62,10 @@ define([
       this.showBackground();
     },
 
-    setupBackgroundContainer : function() {
+    setupBackgroundContainer: function() {
       this.$backgroundContainer = $('<div class="background-switcher__container"></div>');
       $('body').addClass('background-switcher-active');
       $('body').prepend(this.$backgroundContainer);
-    },
-
-    /**
-     * Turn off smooth scrolling in IE and Edge to stop the background from flickering on scroll
-     */
-    disableSmoothScrolling: function() {
-      if(navigator.userAgent.match(/MSIE 10/i) || navigator.userAgent.match(/Trident\/7\./) || navigator.userAgent.match(/Edge/)) {
-        $('body').on("mousewheel", function (event) {
-          event.preventDefault();
-          var wd = event.deltaY * event.deltaFactor;
-          var csp = window.pageYOffset;
-          window.scrollTo(0, csp - wd);
-        });
-      }
     },
 
     onBlockInview: function(event, measurements) {
@@ -137,7 +125,7 @@ define([
 
   Adapt.on('pageView:postRender', function(view) {
     var model = view.model;
-    if (model.get('_backgroundSwitcher') && model.get('_backgroundSwitcher')._isEnabled) {
+    if (model.get('_backgroundSwitcher') && model.get('_backgroundSwitcher')._isActive) {
       new BackgroundSwitcherView({model: model, el: view.el });
     }
   });
